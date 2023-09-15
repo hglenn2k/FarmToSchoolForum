@@ -227,9 +227,8 @@ Controllers.confirmEmail = async (req, res, next) => {
 			delete req.session.registration.updateEmail;
 		}
 
-		res.render('confirm', {
-			title: '[[pages:confirm]]',
-		});
+		// Redirect to the main website, instead of the forum subdomain.
+        res.redirect('https://azfarmtoschool.org/become-a-member');
 	} catch (e) {
 		if (e.message === '[[error:invalid-data]]') {
 			return next();
